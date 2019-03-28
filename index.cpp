@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
-#include "include/network.h"
-#include "server.cpp"
+#include "include/server.h"
+#include "include/client.h"
 
 #define on_error(...) { fprintf(stderr, __VA_ARGS__); fflush(stderr); exit(1); }
 

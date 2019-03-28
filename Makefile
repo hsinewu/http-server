@@ -1,4 +1,5 @@
 CC=clang++
+OBJS=client.o server.o
 
-all:
-	$(CC) index.cpp -o run
+all: $(OBJS)
+	$(CC) index.cpp $(OBJS) -o run
