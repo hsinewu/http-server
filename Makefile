@@ -1,5 +1,13 @@
 CC=clang++
-OBJS=client.o server.o
+CFLAGS=
+SRCS=$(wildcard *.cpp)
+OBJS=$(SRCS:.cpp=.o)
 
 all: $(OBJS)
-	$(CC) index.cpp $(OBJS) -o run
+	$(CC) $(CFLAGS) -o run ./build/*.o
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o ./build/$@
+
+clean:
+	rm run build/*
