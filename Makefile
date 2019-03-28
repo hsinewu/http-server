@@ -1,2 +1,4 @@
+CC=clang++
+
 all:
-	cc server.cpp -o run
+	$(CC) index.cpp -o run
