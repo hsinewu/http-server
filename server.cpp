@@ -1,10 +1,11 @@
 #include "include/network.h"
 #include "include/client.h"
 #include "include/server.h"
+#include <cstdio>
 
 Server::Server() {
     socket_fd = socket(AF_INET, SOCK_STREAM, 0);
-    // if(socket_fd < 0) ERROR
+    if(socket_fd < 0) perror("Fail to create server socket");
 }
 
 Server::~Server() {
@@ -16,7 +17,9 @@ int Server::listen(int port) {
     info.sin_addr.s_addr = INADDR_ANY;
     info.sin_port = htons( port);
     bind(socket_fd, (struct sockaddr*) &info, sizeof(info));
-    return ::listen(socket_fd, 5);
+    int err = ::listen(socket_fd, 5);
+    if(err < 0) perror("Fail to listen server port");
+    return err;
 }
 
 Client* Server::accept() {
