@@ -8,7 +8,7 @@ Response::Response(const char* b) {
 }
 
 Response::~Response() {
-    delete body;
+    delete[] body;
 }
 
 const char* Response::c_str() {

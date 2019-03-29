@@ -3,6 +3,7 @@
 #include "include/server.h"
 #include "include/client.h"
 #include "include/response.h"
+#include "include/file.h"
 #include <string>
 
 #define on_error(...) { fprintf(stderr, __VA_ARGS__); fflush(stderr); exit(1); }
@@ -26,7 +27,9 @@ int main() {
         len = c->read( buf, sizeof(buf));
         if(len) printf("%s\n\n", buf);
 
-        Response *res = new Response(response_from_file());
+        File *file = new File();
+        file->open("./static/index.html");
+        Response *res = new Response( file->c_str());
         const char *message = res->c_str();
         err = c->write( message, strlen(message));
         if( err < 0) on_error("Fail to send\n");
