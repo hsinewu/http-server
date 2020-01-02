@@ -1,0 +1,11 @@
+[Unit]
+Description=Http service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/http start
+ExecStop=/usr/bin/http stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

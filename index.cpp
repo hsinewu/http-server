@@ -4,18 +4,18 @@
 #include "include/client.h"
 #include "include/response.h"
 #include "include/file.h"
-#include <string>
+#include <cstring>
 
 #define on_error(...) { fprintf(stderr, __VA_ARGS__); fflush(stderr); exit(1); }
 
-const char* response_from_file();
+// const char* response_from_file();
 
 int main() {
 
     int err;
 
     Server *server = new Server();
-    server->listen(8888);
+    server->listen(8080);
 
     char buf[256];
     int len;
