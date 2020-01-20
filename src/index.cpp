@@ -28,7 +28,7 @@ int main() {
         if(len) printf("%s\n\n", buf);
 
         File *file = new File();
-        file->open("./static/index.html");
+        file->open("/root/work/http-server/static/index.html");
         Response *res = new Response( file->c_str());
         const char *message = res->c_str();
         err = c->write( message, strlen(message));
