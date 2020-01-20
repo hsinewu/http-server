@@ -1,6 +1,6 @@
 #pragma once
-#include "client.h"
-#include "network.h"
+#include "client.hpp"
+#include "network.hpp"
 
 class Server {
     private:

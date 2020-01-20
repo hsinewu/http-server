@@ -1,5 +1,5 @@
-#include "include/network.h"
-#include "include/client.h"
+#include "include/network.hpp"
+#include "include/client.hpp"
 
 Client::Client() {
 }

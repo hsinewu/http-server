@@ -1,5 +1,5 @@
 #pragma once
-#include "network.h"
+#include "network.hpp"
 
 class Client {
     private:

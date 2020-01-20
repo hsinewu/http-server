@@ -1,6 +1,6 @@
-#include "include/network.h"
-#include "include/client.h"
-#include "include/server.h"
+#include "include/network.hpp"
+#include "include/client.hpp"
+#include "include/server.hpp"
 #include <cstdio>
 
 Server::Server() {

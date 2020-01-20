@@ -1,9 +1,9 @@
 #include <cstdio>
 #include <cstdlib>
-#include "include/server.h"
-#include "include/client.h"
-#include "include/response.h"
-#include "include/file.h"
+#include "include/server.hpp"
+#include "include/client.hpp"
+#include "include/response.hpp"
+#include "include/file.hpp"
 #include <cstring>
 
 #define on_error(...) { fprintf(stderr, __VA_ARGS__); fflush(stderr); exit(1); }
