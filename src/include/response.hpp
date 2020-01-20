@@ -1,7 +1,9 @@
+#include <string>
+
 class Response {
     char* body;
     public:
     Response(const char*);
     ~Response();
-    const char* c_str();
+    std::string toString();
 };

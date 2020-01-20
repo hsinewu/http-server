@@ -1,14 +1,12 @@
 #pragma once
-#include "client.hpp"
-#include "network.hpp"
+#include "socket.hpp"
 
 class Server {
     private:
-    int socket_fd;
-    struct sockaddr_in info;
+    Socket *master;
     public:
     Server();
     ~Server();
-    int listen(int);
-    Client* accept();
+    void listen(int);
+    Socket* accept();
 };

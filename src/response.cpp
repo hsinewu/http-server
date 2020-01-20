@@ -1,6 +1,7 @@
 #include "include/response.hpp"
 #include <cstring>
 #include <cstdio>
+#include <string>
 
 Response::Response(const char* b) {
     body = new char[256];
@@ -11,7 +12,7 @@ Response::~Response() {
     delete[] body;
 }
 
-const char* Response::c_str() {
+std::string Response::toString() {
     const char* fmt = 
     "HTTP/1.1 200 OK\n"
     "Content-Type: text/html\n"
@@ -20,5 +21,5 @@ const char* Response::c_str() {
 
     char* buf = new char[256]; // unmanaged
     sprintf(buf, fmt, strlen(body), body);
-    return buf;
+    return std::string(buf);
 }

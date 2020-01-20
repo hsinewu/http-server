@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=
+CFLAGS=-std=c++11
 BUILD_FOLDER=../build
 SRCS=$(wildcard *.cpp)
 OBJS=$(SRCS:.cpp=.o)
