@@ -5,6 +5,7 @@
 #include "include/file.hpp"
 #include <string>
 #include <ctime>
+#include <unistd.h>
 
 #define on_error(...) { fprintf(stderr, __VA_ARGS__); fflush(stderr); exit(1); }
 
@@ -26,15 +27,19 @@ int main() {
 
         Socket *c = server->accept();
 
-        std::cout << c->read() << std::endl;
+        if(fork() != 0) {
 
-        // File *file = new File();
-        // file->open( index_file);
-        // Response *res = new Response( file->c_str());
-        Response *res = new Response( std::to_string( time(0)).c_str());
-        c->write( res->toString());
-        if( err < 0) on_error("Fail to send\n");
-        delete c;
+            std::cout << c->read() << std::endl;
+
+            // File *file = new File();
+            // file->open( index_file);
+            // Response *res = new Response( file->c_str());
+            Response *res = new Response( std::to_string( time(0)).c_str());
+            c->write( res->toString());
+            if( err < 0) on_error("Fail to send\n");
+            delete c;
+            exit(0);
+        }
     }
 
     return 0;
